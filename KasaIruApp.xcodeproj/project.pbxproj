@@ -1,0 +1,720 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5790B6E30D60D0C90CCDC40E /* Pods_KasaIruApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D06786C1E6C39E4683CF46A /* Pods_KasaIruApp.framework */; };
+		71D6D2549C24F297122F8FE3 /* Pods_KasaIruApp_KasaIruAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5EC3FD3EDB8C85C826BC6C /* Pods_KasaIruApp_KasaIruAppUITests.framework */; };
+		E4821E23D32FE1A0C51118DA /* Pods_KasaIruAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEF5C7A0E847B7DC5A303D0 /* Pods_KasaIruAppTests.framework */; };
+		E99D52312AD596B100A6FEBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99D52302AD596B100A6FEBF /* AppDelegate.swift */; };
+		E99D52332AD596B100A6FEBF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99D52322AD596B100A6FEBF /* SceneDelegate.swift */; };
+		E99D52352AD596B100A6FEBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99D52342AD596B100A6FEBF /* ViewController.swift */; };
+		E99D52382AD596B100A6FEBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E99D52362AD596B100A6FEBF /* Main.storyboard */; };
+		E99D523A2AD596B400A6FEBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99D52392AD596B400A6FEBF /* Assets.xcassets */; };
+		E99D523D2AD596B400A6FEBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E99D523B2AD596B400A6FEBF /* LaunchScreen.storyboard */; };
+		E99D52482AD596B400A6FEBF /* KasaIruAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99D52472AD596B400A6FEBF /* KasaIruAppTests.swift */; };
+		E99D52522AD596B400A6FEBF /* KasaIruAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99D52512AD596B400A6FEBF /* KasaIruAppUITests.swift */; };
+		E99D52542AD596B400A6FEBF /* KasaIruAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99D52532AD596B400A6FEBF /* KasaIruAppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E99D52442AD596B400A6FEBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E99D52252AD596B100A6FEBF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E99D522C2AD596B100A6FEBF;
+			remoteInfo = KasaIruApp;
+		};
+		E99D524E2AD596B400A6FEBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E99D52252AD596B100A6FEBF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E99D522C2AD596B100A6FEBF;
+			remoteInfo = KasaIruApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		060D5D766A1401D5A9049BCA /* Pods-KasaIruApp-KasaIruAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KasaIruApp-KasaIruAppUITests.release.xcconfig"; path = "Target Support Files/Pods-KasaIruApp-KasaIruAppUITests/Pods-KasaIruApp-KasaIruAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4AEF5C7A0E847B7DC5A303D0 /* Pods_KasaIruAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KasaIruAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D06786C1E6C39E4683CF46A /* Pods_KasaIruApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KasaIruApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		712264808749CC01C67E856B /* Pods-KasaIruApp-KasaIruAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KasaIruApp-KasaIruAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-KasaIruApp-KasaIruAppUITests/Pods-KasaIruApp-KasaIruAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AAC58F512073FCA99A256B00 /* Pods-KasaIruApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KasaIruApp.release.xcconfig"; path = "Target Support Files/Pods-KasaIruApp/Pods-KasaIruApp.release.xcconfig"; sourceTree = "<group>"; };
+		AC85A1563DA11784B857D642 /* Pods-KasaIruAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KasaIruAppTests.release.xcconfig"; path = "Target Support Files/Pods-KasaIruAppTests/Pods-KasaIruAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		CF5EC3FD3EDB8C85C826BC6C /* Pods_KasaIruApp_KasaIruAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KasaIruApp_KasaIruAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E194DC6DEF2FEF6276339D82 /* Pods-KasaIruApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KasaIruApp.debug.xcconfig"; path = "Target Support Files/Pods-KasaIruApp/Pods-KasaIruApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E99D522D2AD596B100A6FEBF /* KasaIruApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KasaIruApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E99D52302AD596B100A6FEBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E99D52322AD596B100A6FEBF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E99D52342AD596B100A6FEBF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E99D52372AD596B100A6FEBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E99D52392AD596B400A6FEBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E99D523C2AD596B400A6FEBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E99D523E2AD596B400A6FEBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E99D52432AD596B400A6FEBF /* KasaIruAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KasaIruAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E99D52472AD596B400A6FEBF /* KasaIruAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KasaIruAppTests.swift; sourceTree = "<group>"; };
+		E99D524D2AD596B400A6FEBF /* KasaIruAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KasaIruAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E99D52512AD596B400A6FEBF /* KasaIruAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KasaIruAppUITests.swift; sourceTree = "<group>"; };
+		E99D52532AD596B400A6FEBF /* KasaIruAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KasaIruAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F33444B2E4052BB69DC46F7B /* Pods-KasaIruAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KasaIruAppTests.debug.xcconfig"; path = "Target Support Files/Pods-KasaIruAppTests/Pods-KasaIruAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E99D522A2AD596B100A6FEBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5790B6E30D60D0C90CCDC40E /* Pods_KasaIruApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E99D52402AD596B400A6FEBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4821E23D32FE1A0C51118DA /* Pods_KasaIruAppTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E99D524A2AD596B400A6FEBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71D6D2549C24F297122F8FE3 /* Pods_KasaIruApp_KasaIruAppUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		569057C4B9A7C22058CD2D8C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D06786C1E6C39E4683CF46A /* Pods_KasaIruApp.framework */,
+				CF5EC3FD3EDB8C85C826BC6C /* Pods_KasaIruApp_KasaIruAppUITests.framework */,
+				4AEF5C7A0E847B7DC5A303D0 /* Pods_KasaIruAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		98BFB2BE1F88119B0C226CA6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E194DC6DEF2FEF6276339D82 /* Pods-KasaIruApp.debug.xcconfig */,
+				AAC58F512073FCA99A256B00 /* Pods-KasaIruApp.release.xcconfig */,
+				712264808749CC01C67E856B /* Pods-KasaIruApp-KasaIruAppUITests.debug.xcconfig */,
+				060D5D766A1401D5A9049BCA /* Pods-KasaIruApp-KasaIruAppUITests.release.xcconfig */,
+				F33444B2E4052BB69DC46F7B /* Pods-KasaIruAppTests.debug.xcconfig */,
+				AC85A1563DA11784B857D642 /* Pods-KasaIruAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E99D52242AD596B100A6FEBF = {
+			isa = PBXGroup;
+			children = (
+				E99D522F2AD596B100A6FEBF /* KasaIruApp */,
+				E99D52462AD596B400A6FEBF /* KasaIruAppTests */,
+				E99D52502AD596B400A6FEBF /* KasaIruAppUITests */,
+				E99D522E2AD596B100A6FEBF /* Products */,
+				98BFB2BE1F88119B0C226CA6 /* Pods */,
+				569057C4B9A7C22058CD2D8C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E99D522E2AD596B100A6FEBF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E99D522D2AD596B100A6FEBF /* KasaIruApp.app */,
+				E99D52432AD596B400A6FEBF /* KasaIruAppTests.xctest */,
+				E99D524D2AD596B400A6FEBF /* KasaIruAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E99D522F2AD596B100A6FEBF /* KasaIruApp */ = {
+			isa = PBXGroup;
+			children = (
+				E99D52302AD596B100A6FEBF /* AppDelegate.swift */,
+				E99D52322AD596B100A6FEBF /* SceneDelegate.swift */,
+				E99D52342AD596B100A6FEBF /* ViewController.swift */,
+				E99D52362AD596B100A6FEBF /* Main.storyboard */,
+				E99D52392AD596B400A6FEBF /* Assets.xcassets */,
+				E99D523B2AD596B400A6FEBF /* LaunchScreen.storyboard */,
+				E99D523E2AD596B400A6FEBF /* Info.plist */,
+			);
+			path = KasaIruApp;
+			sourceTree = "<group>";
+		};
+		E99D52462AD596B400A6FEBF /* KasaIruAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				E99D52472AD596B400A6FEBF /* KasaIruAppTests.swift */,
+			);
+			path = KasaIruAppTests;
+			sourceTree = "<group>";
+		};
+		E99D52502AD596B400A6FEBF /* KasaIruAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E99D52512AD596B400A6FEBF /* KasaIruAppUITests.swift */,
+				E99D52532AD596B400A6FEBF /* KasaIruAppUITestsLaunchTests.swift */,
+			);
+			path = KasaIruAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E99D522C2AD596B100A6FEBF /* KasaIruApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E99D52572AD596B400A6FEBF /* Build configuration list for PBXNativeTarget "KasaIruApp" */;
+			buildPhases = (
+				4C3DCA6DEB5F0ACC91D85D87 /* [CP] Check Pods Manifest.lock */,
+				E99D52292AD596B100A6FEBF /* Sources */,
+				E99D522A2AD596B100A6FEBF /* Frameworks */,
+				E99D522B2AD596B100A6FEBF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KasaIruApp;
+			productName = KasaIruApp;
+			productReference = E99D522D2AD596B100A6FEBF /* KasaIruApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E99D52422AD596B400A6FEBF /* KasaIruAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E99D525A2AD596B400A6FEBF /* Build configuration list for PBXNativeTarget "KasaIruAppTests" */;
+			buildPhases = (
+				91780A8971E9F9AB122FBA95 /* [CP] Check Pods Manifest.lock */,
+				E99D523F2AD596B400A6FEBF /* Sources */,
+				E99D52402AD596B400A6FEBF /* Frameworks */,
+				E99D52412AD596B400A6FEBF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E99D52452AD596B400A6FEBF /* PBXTargetDependency */,
+			);
+			name = KasaIruAppTests;
+			productName = KasaIruAppTests;
+			productReference = E99D52432AD596B400A6FEBF /* KasaIruAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E99D524C2AD596B400A6FEBF /* KasaIruAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E99D525D2AD596B400A6FEBF /* Build configuration list for PBXNativeTarget "KasaIruAppUITests" */;
+			buildPhases = (
+				FA5549EFAD53173E6A75D216 /* [CP] Check Pods Manifest.lock */,
+				E99D52492AD596B400A6FEBF /* Sources */,
+				E99D524A2AD596B400A6FEBF /* Frameworks */,
+				E99D524B2AD596B400A6FEBF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E99D524F2AD596B400A6FEBF /* PBXTargetDependency */,
+			);
+			name = KasaIruAppUITests;
+			productName = KasaIruAppUITests;
+			productReference = E99D524D2AD596B400A6FEBF /* KasaIruAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E99D52252AD596B100A6FEBF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					E99D522C2AD596B100A6FEBF = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					E99D52422AD596B400A6FEBF = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = E99D522C2AD596B100A6FEBF;
+					};
+					E99D524C2AD596B400A6FEBF = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = E99D522C2AD596B100A6FEBF;
+					};
+				};
+			};
+			buildConfigurationList = E99D52282AD596B100A6FEBF /* Build configuration list for PBXProject "KasaIruApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E99D52242AD596B100A6FEBF;
+			productRefGroup = E99D522E2AD596B100A6FEBF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E99D522C2AD596B100A6FEBF /* KasaIruApp */,
+				E99D52422AD596B400A6FEBF /* KasaIruAppTests */,
+				E99D524C2AD596B400A6FEBF /* KasaIruAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E99D522B2AD596B100A6FEBF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E99D523D2AD596B400A6FEBF /* LaunchScreen.storyboard in Resources */,
+				E99D523A2AD596B400A6FEBF /* Assets.xcassets in Resources */,
+				E99D52382AD596B100A6FEBF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E99D52412AD596B400A6FEBF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E99D524B2AD596B400A6FEBF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4C3DCA6DEB5F0ACC91D85D87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KasaIruApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91780A8971E9F9AB122FBA95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KasaIruAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA5549EFAD53173E6A75D216 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KasaIruApp-KasaIruAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E99D52292AD596B100A6FEBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E99D52352AD596B100A6FEBF /* ViewController.swift in Sources */,
+				E99D52312AD596B100A6FEBF /* AppDelegate.swift in Sources */,
+				E99D52332AD596B100A6FEBF /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E99D523F2AD596B400A6FEBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E99D52482AD596B400A6FEBF /* KasaIruAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E99D52492AD596B400A6FEBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E99D52522AD596B400A6FEBF /* KasaIruAppUITests.swift in Sources */,
+				E99D52542AD596B400A6FEBF /* KasaIruAppUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E99D52452AD596B400A6FEBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E99D522C2AD596B100A6FEBF /* KasaIruApp */;
+			targetProxy = E99D52442AD596B400A6FEBF /* PBXContainerItemProxy */;
+		};
+		E99D524F2AD596B400A6FEBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E99D522C2AD596B100A6FEBF /* KasaIruApp */;
+			targetProxy = E99D524E2AD596B400A6FEBF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E99D52362AD596B100A6FEBF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E99D52372AD596B100A6FEBF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E99D523B2AD596B400A6FEBF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E99D523C2AD596B400A6FEBF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E99D52552AD596B400A6FEBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E99D52562AD596B400A6FEBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E99D52582AD596B400A6FEBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E194DC6DEF2FEF6276339D82 /* Pods-KasaIruApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KasaIruApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuyuyu.KasaIruApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E99D52592AD596B400A6FEBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAC58F512073FCA99A256B00 /* Pods-KasaIruApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KasaIruApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuyuyu.KasaIruApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E99D525B2AD596B400A6FEBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F33444B2E4052BB69DC46F7B /* Pods-KasaIruAppTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuyuyu.KasaIruAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KasaIruApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KasaIruApp";
+			};
+			name = Debug;
+		};
+		E99D525C2AD596B400A6FEBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC85A1563DA11784B857D642 /* Pods-KasaIruAppTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuyuyu.KasaIruAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KasaIruApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KasaIruApp";
+			};
+			name = Release;
+		};
+		E99D525E2AD596B400A6FEBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 712264808749CC01C67E856B /* Pods-KasaIruApp-KasaIruAppUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuyuyu.KasaIruAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KasaIruApp;
+			};
+			name = Debug;
+		};
+		E99D525F2AD596B400A6FEBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 060D5D766A1401D5A9049BCA /* Pods-KasaIruApp-KasaIruAppUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuyuyu.KasaIruAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KasaIruApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E99D52282AD596B100A6FEBF /* Build configuration list for PBXProject "KasaIruApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E99D52552AD596B400A6FEBF /* Debug */,
+				E99D52562AD596B400A6FEBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E99D52572AD596B400A6FEBF /* Build configuration list for PBXNativeTarget "KasaIruApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E99D52582AD596B400A6FEBF /* Debug */,
+				E99D52592AD596B400A6FEBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E99D525A2AD596B400A6FEBF /* Build configuration list for PBXNativeTarget "KasaIruAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E99D525B2AD596B400A6FEBF /* Debug */,
+				E99D525C2AD596B400A6FEBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E99D525D2AD596B400A6FEBF /* Build configuration list for PBXNativeTarget "KasaIruAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E99D525E2AD596B400A6FEBF /* Debug */,
+				E99D525F2AD596B400A6FEBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E99D52252AD596B100A6FEBF /* Project object */;
+}
