@@ -20,29 +20,41 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(addAreaViewController, animated: true)
     }
     
+    @IBOutlet weak var weatherText: UILabel!
+    @IBOutlet weak var weatherImageView: UIImageView!
+    
+    // 地域PickerView
+    var areaPickerView = UIPickerView()
+    
     // 地域データリスト
     var areaDataList: [AreaModel] = []
     
     // 天気id
-    var weatherId: Int = 0
+    var weatherId = 0
     
-    // 天気パターン
-//    var weatherIdList = WeatherIdModel.allCases
+    // 天気の大まかなid
+    var weatherType = WeatherTypeModel.sunny
+        
+    // 天気idのenumリスト
+    var weatherIdList = WeatherIdModel.allCases
     
     // 緯度
-    var lat = "43.04"
+    var lat = ""
     // 経度
-    var lon = "141.21"
+    var lon = ""
+    
+    var selectDate = ""
         
-    let timeList = ["0:00", "3:00", "6:00", "9:00", "12:00", "15:00", "18:00", "21:00"]
+    let timeList = ["00:00", "03:00", "06:00", "09:00", "12:00", "15:00", "18:00", "21:00"]
     
-    var areaPicker = UIPickerView()
-    
+    var selectTime = ""
+              
     var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeZone = .current
         dateFormatter.locale = Locale(identifier: "ja-JP")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter
     }
     
@@ -63,14 +75,15 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         // 初期値設定
-        timeTextField.text = timeList[0] //TODO 現在時刻の次の時刻を設定する
+        initTimeTextField() // 現在時刻の次の時刻を設定する
         dateTextField.text = dateFormatter.string(from: Date())
+        selectDate = dateFormatter.string(from: Date())
         
         // delegate, datasource
         dateTextField.delegate = self
         timeTextField.delegate = self
-        areaPicker.delegate = self
-        areaPicker.dataSource = self
+        areaPickerView.delegate = self
+        areaPickerView.dataSource = self
         timePicker.delegate = self
         timePicker.dataSource = self
         
@@ -100,10 +113,46 @@ class HomeViewController: UIViewController {
         areaTextField.text = areaDataList[0].prefecture + " " + areaDataList[0].municipality
         
         // 天気API
-        getWeatherData()
+        getWeatherData(lat: areaDataList[0].lat, lon: areaDataList[0].lon)
     }
     
-    func getWeatherData() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        weatherImageView.image = UIImage(named: "sunny")
+        
+        switch weatherType {
+        case .sunny: weatherText.text = "傘不要"
+            weatherImageView.image = UIImage(named: "sunny")
+        case .cloud: weatherText.text = "傘あっても良い"
+            weatherImageView.image = UIImage(named: "cloud")
+        case .rain: weatherText.text = "傘必要"
+            weatherImageView.image = UIImage(named: "rain")
+        case .none:
+            weatherText.text = ""
+        }
+    }
+    
+    func initTimeTextField() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeZone = .current
+        dateFormatter.locale = Locale(identifier: "ja-JP")
+        dateFormatter.dateFormat = "HH:mm"
+        for timeStr in timeList {
+            let time = dateFormatter.date(from: timeStr)!
+            var nowDate = Date.now
+            let nowStr = dateFormatter.string(from: nowDate)
+            nowDate = dateFormatter.date(from: nowStr)!
+            if nowDate <= time {
+                timeTextField.text = timeStr
+                selectTime = timeStr
+                break
+            }
+        }
+    }
+    
+    func getWeatherData(lat: String, lon: String) {
         if let url = URL(string: CommonConst.apiUrl + "lat=\(lat)&lon=\(lon)&appid=\(CommonConst.apiKey)") {
             
             // リクエスト生成
@@ -113,37 +162,54 @@ class HomeViewController: UIViewController {
             let session = URLSession.shared
             
             // リクエストを送信
-            let task = session.dataTask(with: request) { (data, response, error) in
+            let task = session.dataTask(with: request) { [self] (data, response, error) in
                 if let error = error {
                     print("リクエストエラー: \(error)")
                     return
                 }
                 
                 if let data = data {
-                    do {
-                        // JSONデータを解析
-                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    // JSONデータを解析
+                    let json = try! JSONDecoder().decode(WeatherModel.self, from: data)
+                    
+                    //*** debug *** //
+                    print(json.list[0].dt_txt)
+                    print(json.list[0])
+                    print(json.list[0].weather[0])
+                    print(json.list[0].weather[0].id)
+                    print(json.list[0].weather[0].main)
+                    print(json.list[0].weather[0].description)
+                    //*** debug *** //
+                    
+                    for list in json.list {
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateStyle = .long
+                        dateFormatter.timeZone = .current
+                        dateFormatter.locale = Locale(identifier: "ja-JP")
+                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:00"
+                        let selectDateTime = dateFormatter.date(from: selectDate + CommonConst.halfSpace + selectTime)
+                        
+                        let dtTxtDate = dateFormatter.date(from: list.dt_txt)!
+                        
+                        if selectDateTime! <= dtTxtDate {
+                            weatherId = list.weather[0].id
                             
-                            if let main = json["main"] as? [String: Any], let temp = main["temp"] as? Double {
-                                // 温度を取得
-                                print("温度: \(temp)度")
+                            switch weatherId {
+                            case 800: weatherType = WeatherTypeModel.sunny
+                            case 801: weatherType = WeatherTypeModel.cloud
+                            case 802: weatherType = WeatherTypeModel.cloud
+                            case 803: weatherType = WeatherTypeModel.cloud
+                            case 804: weatherType = WeatherTypeModel.cloud
+                            default:
+                                weatherType = WeatherTypeModel.rain
                             }
-                                                        
-                            if let weather = json["weather"] as? [[String: Any]], let id = weather.first?["id"] as? Int {
-                                
-                                // 降水確率
-                                self.weatherId = id
-                                print("天気id: \(id)")
-                            }
+                            break
                             
-                            if let weather = json["weather"] as? [[String: Any]], let description = weather.first?["description"] as? String {
-                                
-                                // 天気の説明を取得
-                                print("天気: \(description)")
-                            }
+                        } else {
+                            // 過去日を選択した場合
+                            weatherId = -1
+                            weatherType = WeatherTypeModel.none
                         }
-                    } catch {
-                        print("JSONデータの解析エラー: \(error)")
                     }
                 }
             }
@@ -152,9 +218,6 @@ class HomeViewController: UIViewController {
         } else {
             print("URLの生成エラー")
         }
-        
-        // 天気パターンの取得
-//        weatherIdList[0]
     }
     
     func configureNavigationBar() {
@@ -163,7 +226,7 @@ class HomeViewController: UIViewController {
     }
     
     func configureAreaTextField() {
-        areaTextField.inputView = areaPicker
+        areaTextField.inputView = areaPickerView
         let toolBar = UIToolbar()
         toolBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44)
         let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
@@ -206,6 +269,7 @@ class HomeViewController: UIViewController {
     
     @objc func datePickerValueChanged(sender: UIDatePicker) {
         dateTextField.text = dateFormatter.string(from: sender.date)
+        selectDate = dateFormatter.string(from: sender.date)
     }
     
     @objc func doneDatePicker() {
@@ -215,7 +279,7 @@ class HomeViewController: UIViewController {
     @objc func donePicker() {
         areaTextField.endEditing(true)
         timeTextField.endEditing(true)
-        getWeatherData()
+//        getWeatherData()
     }
 }
 
@@ -223,11 +287,20 @@ extension HomeViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView == timePicker {
+            selectTime = timeList[row]
             timeTextField.text = timeList[row]
         } else {
+            // 地域PickerViewの変更時
             lat = areaDataList[row].lat
             lon = areaDataList[row].lon
             areaTextField.text = areaDataList[row].prefecture + CommonConst.halfSpace + areaDataList[row].municipality
+            // 日付と時間を初期値にする
+            initTimeTextField()
+            dateTextField.text = dateFormatter.string(from: Date())
+            selectDate = dateFormatter.string(from: Date())
+            // 天気API呼び出し
+            getWeatherData(lat: lat, lon: lon)
+            
         }
         
     }

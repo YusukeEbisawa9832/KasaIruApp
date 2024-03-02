@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SettingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var areaDataList = ["a", "b"]
+    var areaDataList = [AreaModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,11 @@ class SettingViewController: UIViewController {
         // delegate, datasource
         tableView.dataSource = self
         tableView.delegate = self
+        
+        // 表示するデータ一覧をRealmから取得
+        let realm = try! Realm()
+        let result = realm.objects(AreaModel.self)
+        areaDataList = Array(result)
     }
 }
 
@@ -31,7 +37,7 @@ extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.text = areaDataList[indexPath.row]
+        cell.textLabel?.text = areaDataList[indexPath.row].prefecture + CommonConst.halfSpace + areaDataList[indexPath.row].municipality
         
         return cell
     }
@@ -45,13 +51,16 @@ extension SettingViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        let deleteAction = UIContextualAction(style: .destructive, title: "削除") { action, view, completionHandler in
-            
-            print("delete")
+        print("delete")
+        let deleteData = areaDataList[indexPath.row]
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(deleteData)
         }
-        
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        areaDataList.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
+    
 }

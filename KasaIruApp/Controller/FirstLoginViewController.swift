@@ -23,12 +23,7 @@ class FirstLoginViewController: UIViewController {
             areaData.lon = lon
             realm.add(areaData)
         })
-        
-        // HomeViewに遷移
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let homeViewController = storyBoard.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
-        navigationController?.pushViewController(homeViewController, animated: true)
-        
+        pushHomeViewController()
     }
     
     // 地域データ
@@ -45,11 +40,17 @@ class FirstLoginViewController: UIViewController {
     
     let prefecturesList = PrefecturesModel.allCases
     var municipalitiesList = [MunicipalitiesModel]()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 地域が選択されていた場合はHomeViewControllerに遷移する
+        let realm = try! Realm()
+        let result = realm.objects(AreaModel.self)
+        let areaModelList = Array(result)
+        if areaModelList.count > 0 {
+            pushHomeViewController()
+        }
         
         // 初期値設定
         municipalitiesList = prefecturesList[0].municipalities
@@ -87,6 +88,13 @@ class FirstLoginViewController: UIViewController {
     @objc func donePicker() {
         prefecturesTextField.endEditing(true)
         municipalitiesTextField.endEditing(true)
+    }
+    
+    func pushHomeViewController() {
+        // HomeViewに遷移
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = storyBoard.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+        navigationController?.pushViewController(homeViewController, animated: true)
     }
 }
 

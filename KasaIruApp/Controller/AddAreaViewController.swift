@@ -6,24 +6,54 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AddAreaViewController: UIViewController {
     
     @IBOutlet weak var prefecturesTextField: UITextField!
     @IBOutlet weak var municipalitiesTextField: UITextField!
     
+    
+    @IBAction func decideButton(_ sender: Any) {
+        // Realmに登録
+        let realm = try! Realm()
+        try! realm.write({
+            areaData.prefecture = prefecturesTextField.text!
+            areaData.municipality = municipalitiesTextField.text!
+            areaData.lat = lat
+            areaData.lon = lon
+            realm.add(areaData)
+        })
+        navigationController?.popViewController(animated: true)
+        
+    }
+    // 地域データ
+    var areaData = AreaModel()
+    
+    // 緯度
+    var lat = ""
+    // 経度
+    var lon = ""
+    
+    // 都道府県PickerView
     var prefecturesPickerView = UIPickerView()
+    // 市区町村PickerView
     var municipalitiesPickerView = UIPickerView()
     
-    let prefecturesList = ["東京都", "神奈川県"] //TODO 全都道府県 データは外だしがいいかも
-    let municipalitiesList = ["千代田区", "港区"] //TODO 全市区町村
+    var prefecturesList = PrefecturesModel.allCases
+    var municipalitiesList = [MunicipalitiesModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 初期値設定
-        prefecturesTextField.text = prefecturesList[0]
-        municipalitiesTextField.text = municipalitiesList[0]
+        municipalitiesList = prefecturesList[0].municipalities
+        lat = municipalitiesList[0].lat
+        lon = municipalitiesList[0].lon
+        // 初期値設定(textField)
+        prefecturesTextField.text = prefecturesList[0].prefecturesName
+        municipalitiesTextField.text = municipalitiesList[0].municipalitiesName
+        
         // delegate, datasource
         prefecturesTextField.delegate = self
         municipalitiesTextField.delegate = self
@@ -59,18 +89,24 @@ extension AddAreaViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView == prefecturesPickerView {
-            return prefecturesTextField.text = prefecturesList[row]
+            // 都道府県を選択時、市区町村を変更する
+            municipalitiesList = prefecturesList[row].municipalities
+            municipalitiesTextField.text = prefecturesList[row].municipalities[0].municipalitiesName
+            
+            return prefecturesTextField.text = prefecturesList[row].prefecturesName
         } else {
-            return municipalitiesTextField.text = municipalitiesList[row]
+            return municipalitiesTextField.text = prefecturesList[row].municipalities[0].municipalitiesName
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView == prefecturesPickerView {
-            return prefecturesList[row]
+            return prefecturesList[row].prefecturesName
         } else {
-            return municipalitiesList[row]
+            lat = municipalitiesList[row].lat
+            lon = municipalitiesList[row].lon
+            return municipalitiesList[row].municipalitiesName
         }
     }
 }
