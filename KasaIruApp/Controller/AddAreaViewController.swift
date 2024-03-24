@@ -95,7 +95,7 @@ extension AddAreaViewController: UIPickerViewDelegate {
             
             return prefecturesTextField.text = prefecturesList[row].prefecturesName
         } else {
-            return municipalitiesTextField.text = prefecturesList[row].municipalities[0].municipalitiesName
+            return municipalitiesTextField.text = municipalitiesList[row].municipalitiesName
         }
     }
     

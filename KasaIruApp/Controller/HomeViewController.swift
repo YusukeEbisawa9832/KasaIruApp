@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Foundation
 
 class HomeViewController: UIViewController {
     
@@ -116,23 +117,6 @@ class HomeViewController: UIViewController {
         getWeatherData(lat: areaDataList[0].lat, lon: areaDataList[0].lon)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        weatherImageView.image = UIImage(named: "sunny")
-        
-        switch weatherType {
-        case .sunny: weatherText.text = "傘不要"
-            weatherImageView.image = UIImage(named: "sunny")
-        case .cloud: weatherText.text = "傘あっても良い"
-            weatherImageView.image = UIImage(named: "cloud")
-        case .rain: weatherText.text = "傘必要"
-            weatherImageView.image = UIImage(named: "rain")
-        case .none:
-            weatherText.text = ""
-        }
-    }
-    
     func initTimeTextField() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
@@ -173,7 +157,7 @@ class HomeViewController: UIViewController {
                     let json = try! JSONDecoder().decode(WeatherModel.self, from: data)
                     
                     //*** debug *** //
-                    print(json.list[0].dt_txt)
+                    print("dt_txt: \(json.list[0].dt_txt)")
                     print(json.list[0])
                     print(json.list[0].weather[0])
                     print(json.list[0].weather[0].id)
@@ -187,7 +171,8 @@ class HomeViewController: UIViewController {
                         dateFormatter.timeZone = .current
                         dateFormatter.locale = Locale(identifier: "ja-JP")
                         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:00"
-                        let selectDateTime = dateFormatter.date(from: selectDate + CommonConst.halfSpace + selectTime)
+                        // 9時間前にして、UTC時間に合わせる
+                        let selectDateTime = dateFormatter.date(from: selectDate + CommonConst.halfSpace + selectTime)?.addingTimeInterval(-60 * 60 * 9)
                         
                         let dtTxtDate = dateFormatter.date(from: list.dt_txt)!
                         
@@ -203,6 +188,22 @@ class HomeViewController: UIViewController {
                             default:
                                 weatherType = WeatherTypeModel.rain
                             }
+                            
+                            DispatchQueue.main.async {
+                                self.weatherImageView.image = UIImage(named: "sunny")
+                                
+                                switch self.weatherType {
+                                case .sunny: self.weatherText.text = "傘不要"
+                                    self.weatherImageView.image = UIImage(named: "sunny")
+                                case .cloud: self.weatherText.text = "傘あっても良い"
+                                    self.weatherImageView.image = UIImage(named: "cloud")
+                                case .rain: self.weatherText.text = "傘必要"
+                                    self.weatherImageView.image = UIImage(named: "rain")
+                                case .none:
+                                    self.weatherText.text = ""
+                                }
+                            }
+                            
                             break
                             
                         } else {
@@ -213,7 +214,6 @@ class HomeViewController: UIViewController {
                     }
                 }
             }
-            
             task.resume()
         } else {
             print("URLの生成エラー")
@@ -274,12 +274,33 @@ class HomeViewController: UIViewController {
     
     @objc func doneDatePicker() {
         dateTextField.endEditing(true)
+        // 天気情報取得
+        doneGetWeatherData()
     }
     
     @objc func donePicker() {
         areaTextField.endEditing(true)
         timeTextField.endEditing(true)
-//        getWeatherData()
+        // 天気情報取得
+        doneGetWeatherData()
+    }
+    
+    func doneGetWeatherData() {
+        setAreaDataList()
+        
+        for areaData in areaDataList {
+            if areaTextField.text!.contains(areaData.municipality) {
+                lat = areaData.lat
+                lon = areaData.lon
+            }
+        }
+        getWeatherData(lat: lat, lon: lon)
+    }
+    
+    func setAreaDataList() {
+        let realm = try! Realm()
+        let result = realm.objects(AreaModel.self)
+        areaDataList = Array(result)
     }
 }
 
@@ -298,9 +319,6 @@ extension HomeViewController: UIPickerViewDelegate {
             initTimeTextField()
             dateTextField.text = dateFormatter.string(from: Date())
             selectDate = dateFormatter.string(from: Date())
-            // 天気API呼び出し
-            getWeatherData(lat: lat, lon: lon)
-            
         }
         
     }
